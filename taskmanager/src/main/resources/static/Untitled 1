@@ -1,1 +1,7 @@
-CREATE SCHEMA `taskmanager` ;
+docker network create bala-network
+
+docker run -d --net=bala-network -p 3307:3307 --name=taskmanager-db --env="MYSQL_ROOT_PASSWORD=root123$" --env="MYSQL_PASSWORD=root123$" --env="MYSQL_DATABASE=taskmanager" mysql
+
+docker build -t taskmanager-backend .
+
+docker run -t --net=bala-network --link taskmanager-db:mysql -p 8081:8081 --name=taskmanager-backend taskmanager-backend
