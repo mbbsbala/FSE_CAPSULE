@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+/*@import "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css";*/
+@import "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css";
+@import "https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css";
+@import "http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css";
+
+.buttonClass {
+ padding-bottom: 10px;
+ text-align:left; 
+}
