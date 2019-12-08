@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TaskmanagerService } from '../taskmanager.service';
 
 @Component({
   selector: 'app-view',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewComponent implements OnInit {
 
-  constructor() { }
+  taskResponse: Array<any>;
+
+  constructor(private taskManagerService: TaskmanagerService) { }
 
   ngOnInit() {
+    this.taskManagerService.getAll().subscribe(data => {
+      this.taskResponse = data;
+    });
   }
 
 }
