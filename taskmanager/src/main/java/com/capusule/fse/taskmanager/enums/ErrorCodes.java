@@ -6,17 +6,19 @@ public enum ErrorCodes {
 	SYS_INVALID_REQUEST("Request is not valid"),
 	SYS_DB_ERROR("Sorry We are unable to process the request right now. Please try again later.");
 
-	ErrorCodes(String errordesc) {
-		this.setErrorDesc(errordesc);
+	private String code;
+	private String desc;
+
+	private ErrorCodes(String desc) {
+		this.code = name();
+		this.desc = desc;
 	}
 
-	public String getErrorDesc() {
-		return errorDesc;
+	public String getCode() {
+		return code;
 	}
 
-	public void setErrorDesc(String errorDesc) {
-		this.errorDesc = errorDesc;
-	}
-
-	private String errorDesc;
+	public String getDesc() {
+		return desc;
+	};
 }

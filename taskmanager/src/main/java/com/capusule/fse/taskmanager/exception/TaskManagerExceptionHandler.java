@@ -23,9 +23,9 @@ public class TaskManagerExceptionHandler extends ResponseEntityExceptionHandler 
 		result.setStatus("ERROR");
 		ErrorInfo error = new ErrorInfo();
 		ErrorCodes errorCode = ErrorCodes.valueOf(ex.getMessage());
-		error.setErrorDesc(errorCode.getErrorDesc());
-		error.setErrorCode(errorCode.name());
-		result.setError(error);
+		error.setDesc(errorCode.getDesc());
+		error.setCode(errorCode.name());
+		result.setErrorInfo(error);
 		response.setResult(result);
 		return handleExceptionInternal(ex, response, new HttpHeaders(), HttpStatus.OK, request);
 	}
