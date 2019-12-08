@@ -3,6 +3,9 @@ package com.capusule.fse.taskmanager.models;
 
 import org.springframework.lang.NonNull;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -10,6 +13,7 @@ import lombok.ToString;
 @Data
 @ToString
 @NoArgsConstructor
+@JsonInclude(Include.NON_NULL)
 public class Task {
 
 	@NonNull
