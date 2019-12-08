@@ -1,1 +1,48 @@
-<p>view works!</p>
+<div class="container">
+        <div style="text-align:left">
+          <h1 style="padding-bottom: 10px">
+          Task Manager
+          </h1>
+        </div>
+        <div class="buttonClass col-md-8">
+          <button type="button" class="btn btn-light">Add Task</button>
+          <button type="button" class="btn btn-dark">View Task</button>
+        </div>
+        <div style="text-align:left">
+            <div class="row" style="padding-bottom: 10px ">
+              <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Task:</span>
+                  </div>
+                  <input type="text" class="form-control" aria-describedby="basic-addon3">
+                  <div class="input-group-prepend">
+                      <span class="input-group-text">Parent Task:</span>
+                    </div>
+                    <input type="text" class="form-control" aria-describedby="basic-addon3">
+                </div>
+                   
+          </div>
+          <div class="row" style="padding-bottom: 10px">
+            <div class="input-group mb-3" style="padding-right: 15px">
+             
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Priority From:</span>
+                </div>
+                <input type="text" class="form-control">
+             
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Priority To:</span>
+                </div>
+                <input type="text" class="form-control">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Start Date:</span>
+                </div>
+                <input type="text" id="startDatePicker" name="startDate">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">End Date:</span>
+                </div>
+                <input type="text" id="endDatePicker" name="endDate">
+            </div>
+          </div>
+        </div>
+</div>
