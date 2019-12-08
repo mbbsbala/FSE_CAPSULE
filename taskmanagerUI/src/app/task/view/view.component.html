@@ -5,8 +5,8 @@
           </h1>
         </div>
         <div class="buttonClass col-md-8">
-          <button type="button" class="btn btn-light">Add Task</button>
-          <button type="button" class="btn btn-dark">View Task</button>
+          <button type="button" class="btn btn-light" [routerLink] = "'/add'">Add Task</button>
+          <button type="button" class="btn btn-dark" [routerLink] = "'/view'">View Task</button>
         </div>
         <div style="text-align:left">
             <div class="row" style="padding-bottom: 10px ">
@@ -45,4 +45,23 @@
             </div>
           </div>
         </div>
+        <hr>
+        <div *ngIf= "tasks.result = 'SUCCESS' && tasks.taskList">
+          <div *ngFor="let task of tasks.taskList">
+            {{task.task}}
+            {{task.parentTask}}
+            {{task.priority}}
+            {{task.startDate}}
+            {{task.startDate}}
+            <div *ngIf = "{{task.editable}} = false">
+              <button type="button" class="btn btn-light">Edit</button>
+              <button type="button" class="btn btn-light">End Task</button>
+            </div>
+            <div *ngIf = "{{task.editable}} = true">
+              <button type="button" class="btn btn-dark" [routerLink] = "'/update'">Edit</button>
+              <button type="button" class="btn btn-dark" [routerLink] = "'/update'">End Task</button>
+            </div>
+          </div>
+        </div>
 </div>
+<router-outlet></router-outlet>

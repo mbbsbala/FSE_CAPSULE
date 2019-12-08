@@ -1,1 +1,55 @@
-<p>update works!</p>
+<div class="container">
+    <div style="text-align:left">
+      <h1 style="padding-bottom: 10px">
+      Task Manager
+      </h1>
+    </div>
+    
+    <div style="width:50%">
+
+        <div class="row" style="padding-bottom: 10px ">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Task:</span>
+                </div>
+                <input type="text" class="form-control" aria-describedby="basic-addon3">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Priority:</span>
+                </div>
+                <div style="width: 5%">
+                    
+                  </div>
+                <div id="slider" style="width: 80%">
+                    <div id="custom-handle" class="ui-slider-handle"></div>
+                  </div>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Parent Task:</span>
+                </div>
+                <input type="text" class="form-control" aria-describedby="basic-addon3">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Start Date:</span>
+                </div>
+                <input type="text" id="startDatePicker" name="startDate">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">End Date:</span>
+                </div>
+                <input type="text" id="endDatePicker" name="startDate">
+            </div>
+        </div>
+
+        <div style="text-align:center">
+            <button type="button" class="btn btn-dark" [routerLink] = "'/add'">Update Task</button>
+            <button type="button" class="btn btn-light" [routerLink] = "'/view'">Cancel</button>
+          </div>
+    </div>
+    
+</div>
+<router-outlet></router-outlet>

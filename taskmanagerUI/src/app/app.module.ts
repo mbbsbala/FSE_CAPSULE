@@ -7,6 +7,9 @@ import { ViewComponent } from './task/view/view.component';
 import { AddComponent } from './task/add/add.component';
 import { UpdateComponent } from './task/update/update.component';
 
+import { HttpClientModule } from '@angular/common/http';
+import { TaskmanagerService } from './task/taskmanager.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,9 +19,10 @@ import { UpdateComponent } from './task/update/update.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [TaskmanagerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
