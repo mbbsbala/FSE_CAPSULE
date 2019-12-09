@@ -2,12 +2,20 @@
  "taskList" :[
     {
         "task" :"task1",
-        "parentTask" :"parent task",
+        "parentTask" :"Parent task",
         "priority" : 10,
         "startDate" :"20/12/2018",
         "endDate" :"20/12/2020",
         "taskId" : 1,
         "parentTaskId" : 1,
+        "editable" : false
+    },
+    {
+        "task" :"task2",
+        "priority" : 16,
+        "startDate" :"20/12/2015",
+        "endDate" :"20/12/2021",
+        "taskId" : 2,
         "editable" : true
     }
  ]}

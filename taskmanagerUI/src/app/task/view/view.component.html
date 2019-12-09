@@ -53,44 +53,53 @@
     <hr>
     <div *ngIf ="taskResponse">
         <div *ngIf= "taskResponse.result.status == 'SUCCESS' && taskResponse.taskList">
-            <div *ngFor="let task of taskResponse.taskList" class="row" style="padding-bottom: 5px">
-                <div class="col-md-2">
-                        <span class="badge badge-secondary">Task</span> <br>
-                        {{task.task}}
-                </div>
-                <div class="col-md-2">
-                        <span class="badge badge-secondary">Parent</span> <br>
-                        {{task.parentTask}}
-                </div>
-                <div class="col-md-2">
-                        <span class="badge badge-secondary">Priority</span> <br>
-                        {{task.priority}}
-                </div>
-                <div class="col-md-2">
-                        <span class="badge badge-secondary">Start</span> <br>
-                        {{task.startDate}}
-                </div>
-                <div class="col-md-2">
-                        <span class="badge badge-secondary">End</span> <br>
-                        {{task.endDate}}
-                </div>
-                <div *ngIf = "!task.editable" class="row">
-                    <div class="col-md-4">
-                        <button type="button" class="btn btn-light" >Edit</button>
+            <div *ngFor="let task of taskResponse.taskList" style="padding-bottom: 10px">
+                <div class="row">
+                    <div class="col-md-2">
+                            <span class="badge badge-secondary">Task</span> <br>
+                            {{task.task}}
                     </div>
-                    <div class="col-md-8">
-                        <button type="button" class="btn btn-light">End Task</button>
-                    </div>    
-                </div>
-                <div *ngIf = "task.editable" class="row">
-                    <div class="col-md-4">
-                        <button type="button" class="btn btn-dark" [routerLink] = "'/update'" (click)="showUpdate(task)" >Edit</button>
+                    <div class="col-md-2">
+                            <span class="badge badge-secondary">Parent</span> <br>
+                            <div *ngIf = "task.parentTask && task.parentTask != ''">
+                                {{task.parentTask}}
+                            </div>
+                            <div *ngIf = "!task.parentTask || task.parentTask == ''">
+                                    No Parent task associated.
+                            </div>
                     </div>
-                    <div class="col-md-8">
-                        <button type="button" class="btn btn-dark" [routerLink] = "'/update'" (click)="showUpdate(task)">End Task</button>
+                    <div class="col-md-2">
+                            <span class="badge badge-secondary">Priority</span> <br>
+                            {{task.priority}}
                     </div>
-                </div>
-                <hr>
+                    <div class="col-md-2">
+                            <span class="badge badge-secondary">Start</span> <br>
+                            {{task.startDate}}
+                    </div>
+                    <div class="col-md-2">
+                            <span class="badge badge-secondary">End</span> <br>
+                            {{task.endDate}}
+                    </div>
+                    <div *ngIf = "!task.editable" class="row">
+                        <div class="col-md-4">
+                            <button type="button" class="btn btn-light" disabled>Edit</button>
+                        </div>
+                        <div class="col-md-8">
+                            <button type="button" class="btn btn-light" disabled>End Task</button>
+                        </div>    
+                    </div>
+                    <div *ngIf = "task.editable" class="row">
+                        <div class="col-md-4">
+                            <button type="button" class="btn btn-dark" [routerLink] = "'/update'" (click)="showUpdate(task)" >Edit</button>
+                        </div>
+                        <div class="col-md-8">
+                            <button type="button" class="btn btn-dark" (click)="endTask(task)">End Task</button>
+                        </div>
+                    </div>
+                </div> 
+                <div class ="row">
+                    <hr>
+                </div>               
             </div>
         </div>
     </div>
