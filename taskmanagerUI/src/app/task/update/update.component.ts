@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Task } from '../model/task';
 
 @Component({
   selector: 'app-update',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UpdateComponent implements OnInit {
 
+  task: Task;
   constructor() { }
 
   ngOnInit() {

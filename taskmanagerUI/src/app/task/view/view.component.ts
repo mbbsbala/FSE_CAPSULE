@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskmanagerService } from '../taskmanager.service';
 import { ViewAllTaskResponse } from '../model/ViewAllTaskResponse';
+import { Task } from '../model/task';
 
 @Component({
   selector: 'app-view',
@@ -19,4 +20,11 @@ export class ViewComponent implements OnInit {
     });
   }
 
+  showUpdate(task: Task) {
+    console.log('click', task);
+  }
+
+  endTask(task: Task) {
+    console.log('click', task);
+  }
 }
