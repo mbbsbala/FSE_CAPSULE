@@ -1,67 +1,98 @@
 <div class="container">
-        <div style="text-align:left">
-          <h1 style="padding-bottom: 10px">
-          Task Manager
-          </h1>
+    <div style="text-align:left">
+        <h1 style="padding-bottom: 10px">
+        Task Manager
+        </h1>
+    </div>
+    <div class=" row buttonClass">
+        <div class="col-md-8">
+            <div class="row">
+                    <div class="col-md-2"><button type="button" class="btn btn-secondary" [routerLink] = "'/add'">Add Task</button></div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-2"><button type="button" class="btn btn-primary" [routerLink] = "'/view'">View Task</button></div>
+            </div>             
         </div>
-        <div class="buttonClass col-md-8">
-          <button type="button" class="btn btn-light" [routerLink] = "'/add'">Add Task</button>
-          <button type="button" class="btn btn-dark" [routerLink] = "'/view'">View Task</button>
+    </div>
+    <div style="text-align:left">
+        <div class="row" style="padding-bottom: 10px ">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                <span class="input-group-text">Task:</span>
+                </div>
+                <input type="text" class="form-control" aria-describedby="basic-addon3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Parent Task:</span>
+                </div>
+                <input type="text" class="form-control" aria-describedby="basic-addon3">
+            </div>
+                
         </div>
-        <div style="text-align:left">
-            <div class="row" style="padding-bottom: 10px ">
-              <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">Task:</span>
-                  </div>
-                  <input type="text" class="form-control" aria-describedby="basic-addon3">
-                  <div class="input-group-prepend">
-                      <span class="input-group-text">Parent Task:</span>
+        <div class="row" style="padding-bottom: 10px">
+        <div class="input-group mb-3" style="padding-right: 15px">
+            
+            <div class="input-group-prepend">
+                <span class="input-group-text">Priority From:</span>
+            </div>
+            <input type="text" class="form-control">
+            
+            <div class="input-group-prepend">
+                <span class="input-group-text">Priority To:</span>
+            </div>
+            <input type="text" class="form-control">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Start Date:</span>
+            </div>
+            <input type="text" id="startDatePicker" name="startDate">
+            <div class="input-group-prepend">
+                <span class="input-group-text">End Date:</span>
+            </div>
+            <input type="text" id="endDatePicker" name="endDate">
+        </div>
+        </div>
+    </div>
+    <hr>
+    <div *ngIf ="taskResponse">
+        <div *ngIf= "taskResponse.result.status == 'SUCCESS' && taskResponse.taskList">
+            <div *ngFor="let task of taskResponse.taskList" class="row" style="padding-bottom: 5px">
+                <div class="col-md-2">
+                        <span class="badge badge-secondary">Task</span> <br>
+                        {{task.task}}
+                </div>
+                <div class="col-md-2">
+                        <span class="badge badge-secondary">Parent</span> <br>
+                        {{task.parentTask}}
+                </div>
+                <div class="col-md-2">
+                        <span class="badge badge-secondary">Priority</span> <br>
+                        {{task.priority}}
+                </div>
+                <div class="col-md-2">
+                        <span class="badge badge-secondary">Start</span> <br>
+                        {{task.startDate}}
+                </div>
+                <div class="col-md-2">
+                        <span class="badge badge-secondary">End</span> <br>
+                        {{task.endDate}}
+                </div>
+                <div *ngIf = "!task.editable" class="row">
+                    <div class="col-md-4">
+                        <button type="button" class="btn btn-light" >Edit</button>
                     </div>
-                    <input type="text" class="form-control" aria-describedby="basic-addon3">
+                    <div class="col-md-8">
+                        <button type="button" class="btn btn-light">End Task</button>
+                    </div>    
                 </div>
-                   
-          </div>
-          <div class="row" style="padding-bottom: 10px">
-            <div class="input-group mb-3" style="padding-right: 15px">
-             
-                <div class="input-group-prepend">
-                  <span class="input-group-text">Priority From:</span>
+                <div *ngIf = "task.editable" class="row">
+                    <div class="col-md-4">
+                        <button type="button" class="btn btn-dark" [routerLink] = "'/update'" (click)="showUpdate(task)" >Edit</button>
+                    </div>
+                    <div class="col-md-8">
+                        <button type="button" class="btn btn-dark" [routerLink] = "'/update'" (click)="showUpdate(task)">End Task</button>
+                    </div>
                 </div>
-                <input type="text" class="form-control">
-             
-                <div class="input-group-prepend">
-                  <span class="input-group-text">Priority To:</span>
-                </div>
-                <input type="text" class="form-control">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">Start Date:</span>
-                </div>
-                <input type="text" id="startDatePicker" name="startDate">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">End Date:</span>
-                </div>
-                <input type="text" id="endDatePicker" name="endDate">
+                <hr>
             </div>
-          </div>
         </div>
-        <hr>
-        <div *ngIf= "tasks.result = 'SUCCESS' && tasks.taskList">
-          <div *ngFor="let task of tasks.taskList">
-            {{task.task}}
-            {{task.parentTask}}
-            {{task.priority}}
-            {{task.startDate}}
-            {{task.startDate}}
-            <div *ngIf = "{{task.editable}} = false">
-              <button type="button" class="btn btn-light">Edit</button>
-              <button type="button" class="btn btn-light">End Task</button>
-            </div>
-            <div *ngIf = "{{task.editable}} = true">
-              <button type="button" class="btn btn-dark" [routerLink] = "'/update'">Edit</button>
-              <button type="button" class="btn btn-dark" [routerLink] = "'/update'">End Task</button>
-            </div>
-          </div>
-        </div>
+    </div>
 </div>
 <router-outlet></router-outlet>

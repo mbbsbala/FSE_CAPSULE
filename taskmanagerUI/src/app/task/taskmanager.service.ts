@@ -11,6 +11,8 @@ export class TaskmanagerService {
   }
 
   getAll(): Observable<any> {
-    return this.http.get('//localhost:8080/taskmanager/v1/api/task/view/all');
+   // return this.http.get('http://localhost:9000/taskmanager/api/v1/task/view/all');
+
+   return this.http.get('/assets/stubs/viewTask.json')
   }
 }

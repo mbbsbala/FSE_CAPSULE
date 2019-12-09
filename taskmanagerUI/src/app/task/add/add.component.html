@@ -4,10 +4,15 @@
       Task Manager
       </h1>
     </div>
-    <div class="buttonClass col-md-8">
-      <button type="button" class="btn btn-dark" [routerLink] = "'/add'">Add Task</button>
-      <button type="button" class="btn btn-light" [routerLink] = "'/view'">View Task</button>
-    </div>
+    <div class=" row buttonClass">
+            <div class="col-md-8">
+                <div class="row">
+                        <div class="col-md-2"><button type="button" class="btn btn-primary" [routerLink] = "'/add'">Add Task</button></div>
+                        <div class="col-md-1"></div>
+                        <div class="col-md-2"><button type="button" class="btn btn-secondary" [routerLink] = "'/view'">View Task</button></div>
+                </div>             
+            </div>
+        </div>
     <div style="width:50%">
 
         <div class="row" style="padding-bottom: 10px ">
