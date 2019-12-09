@@ -3,7 +3,7 @@ export class Task {
     parentTask:string;
     priority:number;
     startDate:string;
-    endDate:number;
+    endDate:string;
     taskId:number;
     parentTaskId:number;
     editable:boolean;
@@ -13,7 +13,7 @@ export class Task {
         this.parentTask='';
         this.priority=0;
         this.startDate='';
-        this.endDate=0;
+        this.endDate='';
         this.taskId=0;
         this.parentTaskId=0;
         this.editable=true;        

@@ -1,8 +1,10 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { TaskmanagerService } from '../taskmanager.service';
 import { ViewAllTaskResponse } from '../model/ViewAllTaskResponse';
 import { Task } from '../model/task';
-import { EventEmitter } from 'events';
+import { Router } from '@angular/router';
+import { Data } from 'src/app/Data';
+import { APIResponse } from '../model/APIResponse';
 
 @Component({
   selector: 'app-view',
@@ -12,8 +14,9 @@ import { EventEmitter } from 'events';
 export class ViewComponent implements OnInit {
 
   taskResponse: ViewAllTaskResponse;
-  @Output() open = new EventEmitter();
-  constructor(private taskManagerService: TaskmanagerService) { }
+  apiresponse : APIResponse;
+  endTaskDetail: Task;
+  constructor(private taskManagerService: TaskmanagerService, private router: Router,  private data: Data) { }
 
   ngOnInit() {
     this.taskManagerService.getAll().subscribe(data => {
@@ -23,9 +26,17 @@ export class ViewComponent implements OnInit {
 
   showUpdate(task: Task) {
     console.log('click', task);
+    this.data.storage = task;
+    this.router.navigate(['/update']);
   }
 
   endTask(task: Task) {
-    console.log('click', task);
+    this.endTaskDetail = new Task;
+    this.endTaskDetail = task;
+    this.endTaskDetail.endDate = "01/12/2019";
+    this.taskManagerService.updateTask(this.endTaskDetail).subscribe(data => {
+      this.taskManagerService = data;
+    });
+    this.router.navigate(['/view']);
   }
 }

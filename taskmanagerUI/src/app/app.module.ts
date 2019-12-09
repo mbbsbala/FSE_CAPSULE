@@ -9,6 +9,7 @@ import { UpdateComponent } from './task/update/update.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { TaskmanagerService } from './task/taskmanager.service';
+import { Data } from './Data';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { TaskmanagerService } from './task/taskmanager.service';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [TaskmanagerService],
+  providers: [TaskmanagerService,Data],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

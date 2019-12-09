@@ -12,7 +12,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text">Task:</span>
                 </div>
-                <input type="text" class="form-control" aria-describedby="basic-addon3">
+                <input type="text" class="form-control" aria-describedby="basic-addon3" value="{{task.task}}">
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
@@ -22,33 +22,38 @@
                     
                   </div>
                 <div id="slider" style="width: 80%">
-                    <div id="custom-handle" class="ui-slider-handle"></div>
+                    <div id="custom-handle" class="ui-slider-handle"> {{task.priority}}</div>
                   </div>
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                   <span class="input-group-text">Parent Task:</span>
                 </div>
-                <input type="text" class="form-control" aria-describedby="basic-addon3">
+                <input type="text" class="form-control" aria-describedby="basic-addon3" value="{{task.parentTask}}">
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                   <span class="input-group-text">Start Date:</span>
                 </div>
-                <input type="text" id="startDatePicker" name="startDate">
+                <input type="text" id="startDatePicker" name="startDate" value="{{task.startDate}}">
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                   <span class="input-group-text">End Date:</span>
                 </div>
-                <input type="text" id="endDatePicker" name="startDate">
+                <input type="text" id="endDatePicker" name="endDate" value="{{task.endDate}}">
             </div>
         </div>
 
-        <div style="text-align:center">
-            <button type="button" class="btn btn-dark" [routerLink] = "'/add'">Update Task</button>
-            <button type="button" class="btn btn-light" [routerLink] = "'/view'">Cancel</button>
+        <div class=" row buttonClass" style="text-align:center">
+          <div class="col-md-8">
+              <div class="row">
+                      <div class="col-md-5"><button type="button" class="btn btn-dark" (click)= "updateTask(task)">Update Task</button></div>
+                      <div class="col-md-1"></div>
+                      <div class="col-md-2"><button type="button" class="btn btn-light" [routerLink] = "'/view'">Cancel</button></div>
+              </div>             
           </div>
+      </div>
     </div>
     
 </div>

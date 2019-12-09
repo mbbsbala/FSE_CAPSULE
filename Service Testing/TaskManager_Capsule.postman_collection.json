@@ -1,0 +1,155 @@
+{
+	"info": {
+		"_postman_id": "ade9332d-2aae-4ffa-ba5b-7f42a5925142",
+		"name": "TaskManager_Capsule",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "View all Task",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/taskmanager/api/v1/task/view/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"taskmanager",
+						"api",
+						"v1",
+						"task",
+						"view",
+						"all"
+					]
+				},
+				"description": "View all Task"
+			},
+			"response": []
+		},
+		{
+			"name": "Add Task",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"task\":\"Task 1\",\n\t\"priority\" : 10,\n\t\"startDate\" : \"10/12/2019\",\n\t\"endDate\" : \"01/02/2020\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/taskmanager/api/v1/task/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"taskmanager",
+						"api",
+						"v1",
+						"task",
+						"add"
+					]
+				},
+				"description": "Add Task"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Task",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"task\":\"task 2\",\n\t\"priority\" : 22,\n\t\"startDate\" : \"13/10/2019\",\n\t\"endDate\" : \"01/05/2020\",\n\t\"taskId\" : \"2\",\n\t\"parentTask\": \"parent task added\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/taskmanager/api/v1/task/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"taskmanager",
+						"api",
+						"v1",
+						"task",
+						"update"
+					]
+				},
+				"description": "Update Task"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Task",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"taskId\" : \"1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/taskmanager/api/v1/task/delete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"taskmanager",
+						"api",
+						"v1",
+						"task",
+						"delete"
+					]
+				},
+				"description": "Delete Task"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
