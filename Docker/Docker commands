@@ -1,13 +1,19 @@
-docker network create bala-network
+--Run MySQL db from docker image
 
 docker run -d -p 6033:3306 --name=taskmanager-db --env="MYSQL_ROOT_PASSWORD=root123$" --env="MYSQL_PASSWORD=root123$" --env="MYSQL_DATABASE=taskmanager" mysql
 
+--Build Image of the backend service
+
 docker build -t taskmanager-backend .
+
+-- Run docker container for backend service
 
 docker run -t --link taskmanager-db:mysql -p 8080:8080 --name=taskmanager-backend taskmanager-backend
 
 
-docker rmi taskmanager-backend
+--stop container ,remove container, remove images
+ 
+docker stop taskmanager-backend taskmanager-db
 docker rm taskmanager-backend taskmanager-db
+docker rmi taskmanager-backend taskmanager-db
 
-docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' taskmanager-backend

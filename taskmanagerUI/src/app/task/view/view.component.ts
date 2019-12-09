@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { TaskmanagerService } from '../taskmanager.service';
 import { ViewAllTaskResponse } from '../model/ViewAllTaskResponse';
 import { Task } from '../model/task';
+import { EventEmitter } from 'events';
 
 @Component({
   selector: 'app-view',
@@ -11,7 +12,7 @@ import { Task } from '../model/task';
 export class ViewComponent implements OnInit {
 
   taskResponse: ViewAllTaskResponse;
-  @Output() messageEvent = new EventEmitter<string>();
+  @Output() open = new EventEmitter();
   constructor(private taskManagerService: TaskmanagerService) { }
 
   ngOnInit() {
