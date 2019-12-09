@@ -12,6 +12,7 @@ export class UpdateComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }

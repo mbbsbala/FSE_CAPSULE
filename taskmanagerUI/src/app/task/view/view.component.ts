@@ -11,7 +11,7 @@ import { Task } from '../model/task';
 export class ViewComponent implements OnInit {
 
   taskResponse: ViewAllTaskResponse;
-
+  @Output() messageEvent = new EventEmitter<string>();
   constructor(private taskManagerService: TaskmanagerService) { }
 
   ngOnInit() {
