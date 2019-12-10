@@ -10,12 +10,8 @@ export class Task {
 
     constructor(){
         this.task='';
-        this.parentTask='';
-        this.priority=0;
+        this.priority=15;
         this.startDate='';
         this.endDate='';
-        this.taskId=0;
-        this.parentTaskId=0;
-        this.editable=true;        
     }
 }
