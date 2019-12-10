@@ -2,8 +2,8 @@ export class Task {
     task:string;
     parentTask:string;
     priority:number;
-    startDate:string;
-    endDate:string;
+    startDate:any;
+    endDate:any;
     taskId:number;
     parentTaskId:number;
     editable:boolean;

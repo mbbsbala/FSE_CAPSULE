@@ -9,7 +9,7 @@
             <div class="row">
                     <div class="col-md-2"><button type="button" class="btn btn-secondary" [routerLink] = "'/add'">Add Task</button></div>
                     <div class="col-md-1"></div>
-                    <div class="col-md-4"><button type="button" class="btn btn-primary" [routerLink] = "'/view'">View Task</button></div>
+                    <div class="col-md-4"><button type="button" class="btn btn-primary" [disabled]= true>View Task</button></div>
             </div>             
         </div>
     </div>
@@ -42,11 +42,19 @@
             <div class="input-group-prepend">
                 <span class="input-group-text">Start Date:</span>
             </div>
-            <input type="text" id="startDatePicker" name="startDate">
+            <mat-form-field>
+                <input matInput [matDatepicker]="startDate" name="startDate" disabled>
+                <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+                <mat-datepicker #startDate disabled="false"> </mat-datepicker>
+            </mat-form-field>
             <div class="input-group-prepend">
                 <span class="input-group-text">End Date:</span>
             </div>
-            <input type="text" id="endDatePicker" name="endDate">
+            <mat-form-field>
+                <input matInput [matDatepicker]="endDate" name="endDate" disabled>
+                <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+                <mat-datepicker #endDate disabled="false"></mat-datepicker>
+            </mat-form-field>
         </div>
         </div>
     </div>

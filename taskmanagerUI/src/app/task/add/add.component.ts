@@ -25,7 +25,13 @@ export class AddComponent implements OnInit {
   addTask() {
     console.log("add task " , this.task);
     console.log(this.value);
+
+    const startDate = this.task.startDate.toLocaleDateString();
+    const endDate = this.task.endDate.toLocaleDateString();
+
     this.task.priority = this.value;
+    this.task.startDate = startDate;
+    this.task.endDate = endDate;
     this.taskManagerService.addTask(this.task).subscribe(data => {
       this.taskManagerService = data;
     });
@@ -34,5 +40,6 @@ export class AddComponent implements OnInit {
 
   resetTask(){
     this.task = new Task();
+    this.value=15;
   }
 }

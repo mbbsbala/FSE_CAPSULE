@@ -7,7 +7,7 @@
     <div class=" row buttonClass">
             <div class="col-md-8">
                 <div class="row">
-                        <div class="col-md-2"><button type="button" class="btn btn-primary" [routerLink] = "'/add'">Add Task</button></div>
+                        <div class="col-md-2"><button type="button" class="btn btn-primary" [disabled]= true>Add Task</button></div>
                         <div class="col-md-1"></div>
                         <div class="col-md-4"><button type="button" class="btn btn-secondary" [routerLink] = "'/view'">View Task</button></div>
                 </div>             
@@ -37,9 +37,9 @@
                         <span class="input-group-text">Start Date:</span>
                         </div>
                         <mat-form-field>
-                            <input matInput [matDatepicker]="startDate" name="startDate" placeholder="Choose a date" [(ngModel)]="task.startDate">
+                            <input matInput [matDatepicker]="startDate" name="startDate" disabled [(ngModel)]="task.startDate">
                             <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
-                            <mat-datepicker #startDate></mat-datepicker>
+                            <mat-datepicker #startDate disabled="false"></mat-datepicker>
                         </mat-form-field>
                     </div>
                     <div class="input-group mb-3">
@@ -47,9 +47,9 @@
                         <span class="input-group-text">End Date:</span>
                         </div>
                         <mat-form-field>
-                            <input matInput [matDatepicker]="endDate" name="endDate" placeholder="Choose a date" [(ngModel)]="task.endDate">
+                            <input matInput [matDatepicker]="endDate" name="endDate" disabled [(ngModel)]="task.endDate">
                             <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
-                            <mat-datepicker #endDate></mat-datepicker>
+                            <mat-datepicker #endDate disabled="false"></mat-datepicker>
                         </mat-form-field>
                     </div>
                 </div>
@@ -57,7 +57,7 @@
                 <div class=" row buttonClass" style="text-align:center">
                     <div class="col-md-8">
                         <div class="row">
-                            <div class="col-md-5"><button type = "button"  class="btn btn-dark" (click) = "addTask()">Add</button></div>
+                            <div class="col-md-5"><button type = "button" [disabled]="!task.task || !task.priority || !task.startDate || !task.endDate" class="btn btn-dark" (click) = "addTask()">Add</button></div>
                             <div class="col-md-1"></div>
                             <div class="col-md-2"><button type="button" class="btn btn-light" (click) = "resetTask()">Reset</button></div>
                         </div>             

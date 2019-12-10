@@ -19,6 +19,8 @@ export class UpdateComponent implements OnInit {
     console.log("data ", JSON.stringify(data.storage));
     this.task = this.data.storage;
     this.value = this.task.priority;
+    this.task.startDate = this.parsePickerDate(this.task.startDate);
+    this.task.endDate = this.parsePickerDate(this.task.endDate);
   }
 
   ngOnInit() {
@@ -26,23 +28,28 @@ export class UpdateComponent implements OnInit {
   }
 
   updateTask() {
-    console.log("updated task ", this.task);
-    //this.task = new Task;
-    // this.task.task = updateTaskForm.task;
-    // if(updateTaskForm.parentTask != null) {
-    //   this.task.parentTask = updateTaskForm.parentTask;
-    // }
-    // this.task.startDate = updateTaskForm.startDate;
-    // this.task.endDate = updateTaskForm.endDate;
-    // this.task.priority = updateTaskForm.priority;
+    console.log("updated task " , this.task);
+    console.log(this.value);
+
+    const startDate = this.task.startDate.toLocaleDateString();
+    const endDate = this.task.endDate.toLocaleDateString();
+
+    this.task.priority = this.value;
+    this.task.startDate = startDate;
+    this.task.endDate = endDate;
     this.taskManagerService.updateTask(this.task).subscribe(data => {
       this.taskManagerService = data;
     });
     this.router.navigate(['/view']);
   }
 
-  onClickSubmit(formData) {
-    alert('Your task is : ' + formData.task);
- }
+  parsePickerDate(strDate: String): Date {
+    const str = strDate.split('/');
 
+    const date = Number(str[0]);
+    const month = Number(str[1]) - 1;
+    const year = Number(str[2]);
+
+    return new Date(year, month, date);
+  }
 }
