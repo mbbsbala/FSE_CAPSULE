@@ -34,6 +34,7 @@ export class ViewComponent implements OnInit {
     this.endTaskDetail = new Task;
     this.endTaskDetail = task;
     this.endTaskDetail.endDate = "01/12/2019";
+    this.endTaskDetail.editable = false;
     this.taskManagerService.updateTask(this.endTaskDetail).subscribe(data => {
       this.taskManagerService = data;
     });

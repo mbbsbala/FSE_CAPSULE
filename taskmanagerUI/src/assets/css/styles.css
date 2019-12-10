@@ -3,8 +3,12 @@
 @import "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css";
 @import "https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css";
 @import "http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css";
-
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css";
+@import "https://fonts.googleapis.com/icon?family=Material+Icons";
 .buttonClass {
  padding-bottom: 10px;
  text-align:left; 
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -20,3 +20,20 @@ $( function() {
       }
     });
   } );
+
+  
+angular
+  .module('taskmanagerApp', ['ngMaterial'])
+  .controller('addsliderController', addsliderController)
+  .controller('updatesliderController', updatesliderController);
+
+function addsliderController ($scope, $mdSidenav) {
+  $scope.color = {
+     grey: 15
+  };
+}   
+function updatesliderController ($scope, $mdSidenav) {
+  $scope.color = {
+     grey: 15
+  };
+}     

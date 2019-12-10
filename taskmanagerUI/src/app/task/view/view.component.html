@@ -9,7 +9,7 @@
             <div class="row">
                     <div class="col-md-2"><button type="button" class="btn btn-secondary" [routerLink] = "'/add'">Add Task</button></div>
                     <div class="col-md-1"></div>
-                    <div class="col-md-2"><button type="button" class="btn btn-primary" [routerLink] = "'/view'">View Task</button></div>
+                    <div class="col-md-4"><button type="button" class="btn btn-primary" [routerLink] = "'/view'">View Task</button></div>
             </div>             
         </div>
     </div>
@@ -56,11 +56,11 @@
             <div *ngFor="let task of taskResponse.taskList" style="padding-bottom: 10px">
                 <div class="row">
                     <div class="col-md-2">
-                            <span class="badge badge-secondary">Task</span> <br>
+                            <span class="badge badge-secondary"><h6 style="margin-bottom: .1rem">Task</h6></span> <br>
                             {{task.task}}
                     </div>
                     <div class="col-md-2">
-                            <span class="badge badge-secondary">Parent</span> <br>
+                            <span class="badge badge-secondary"><h6 style="margin-bottom: .1rem">Parent</h6></span> <br>
                             <div *ngIf = "task.parentTask && task.parentTask != ''">
                                 {{task.parentTask}}
                             </div>
@@ -69,15 +69,15 @@
                             </div>
                     </div>
                     <div class="col-md-2">
-                            <span class="badge badge-secondary">Priority</span> <br>
+                            <span class="badge badge-secondary"><h6 style="margin-bottom: .1rem">Priority</h6></span> <br>
                             {{task.priority}}
                     </div>
                     <div class="col-md-2">
-                            <span class="badge badge-secondary">Start</span> <br>
+                            <span class="badge badge-secondary"><h6 style="margin-bottom: .1rem">Start</h6></span> <br>
                             {{task.startDate}}
                     </div>
                     <div class="col-md-2">
-                            <span class="badge badge-secondary">End</span> <br>
+                            <span class="badge badge-secondary"><h6 style="margin-bottom: .1rem">End</h6></span> <br>
                             {{task.endDate}}
                     </div>
                     <div *ngIf = "!task.editable" class="row">

@@ -16,19 +16,21 @@ export class TaskmanagerService {
   options = { headers: this.headers };
 
   getAll(): Observable<any> {
-   return this.http.get('http://localhost:8080/taskmanager/api/v1/task/view/all');
+   //return this.http.get('http://localhost:8080/taskmanager/api/v1/task/view/all');
 
-   //return this.http.get('/assets/stubs/viewTask.json')
+   return this.http.get('/assets/stubs/viewTask.json');
   }
 
   updateTask(task:Task): Observable<any>  {
     console.log(JSON.stringify(task));
-    return this.http.post('http://localhost:8080/taskmanager/api/v1/task/update', task , this.options);
+    //return this.http.post('http://localhost:8080/taskmanager/api/v1/task/update', task , this.options);
+    return this.http.get('/assets/stubs/successResponse.json');
   }
 
   addTask(task:Task): Observable<any>  {
     console.log(JSON.stringify(task));
-    return this.http.post('http://localhost:8080/taskmanager/api/v1/task/add', task , this.options);
+    //return this.http.post('http://localhost:8080/taskmanager/api/v1/task/add', task , this.options);
+    return this.http.get('/assets/stubs/successResponse.json');
   }
 
 }

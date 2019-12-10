@@ -14,16 +14,35 @@ import { TaskmanagerService } from '../taskmanager.service';
 export class UpdateComponent implements OnInit {
 
   task: Task;
-  constructor(private taskManagerService : TaskmanagerService, private router: Router) { }
-
-  ngOnInit() {
+  value: number;
+  constructor(private taskManagerService : TaskmanagerService, private data: Data, private router: Router) { 
+    console.log("data ", JSON.stringify(data.storage));
+    this.task = this.data.storage;
+    this.value = this.task.priority;
   }
 
-  addTask(task: Task) {
-    this.taskManagerService.updateTask(task).subscribe(data => {
+  ngOnInit() {
+    
+  }
+
+  updateTask() {
+    console.log("updated task ", this.task);
+    //this.task = new Task;
+    // this.task.task = updateTaskForm.task;
+    // if(updateTaskForm.parentTask != null) {
+    //   this.task.parentTask = updateTaskForm.parentTask;
+    // }
+    // this.task.startDate = updateTaskForm.startDate;
+    // this.task.endDate = updateTaskForm.endDate;
+    // this.task.priority = updateTaskForm.priority;
+    this.taskManagerService.updateTask(this.task).subscribe(data => {
       this.taskManagerService = data;
     });
     this.router.navigate(['/view']);
   }
+
+  onClickSubmit(formData) {
+    alert('Your task is : ' + formData.task);
+ }
 
 }
