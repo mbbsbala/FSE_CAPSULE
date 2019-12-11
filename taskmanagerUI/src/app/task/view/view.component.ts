@@ -25,7 +25,6 @@ export class ViewComponent implements OnInit {
   }
 
   showUpdate(task: Task) {
-    console.log('click', task);
     this.data.storage = task;
     this.router.navigate(['/update']);
   }

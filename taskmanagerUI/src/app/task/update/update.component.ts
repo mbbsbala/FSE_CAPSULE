@@ -16,7 +16,6 @@ export class UpdateComponent implements OnInit {
   task: Task;
   value: number;
   constructor(private taskManagerService : TaskmanagerService, private data: Data, private router: Router) { 
-    console.log("data ", JSON.stringify(data.storage));
     this.task = this.data.storage;
     this.value = this.task.priority;
     this.task.startDate = this.parsePickerDate(this.task.startDate);
@@ -28,8 +27,6 @@ export class UpdateComponent implements OnInit {
   }
 
   updateTask() {
-    console.log("updated task " , this.task);
-    console.log(this.value);
 
     const startDate = this.task.startDate.toLocaleDateString();
     const endDate = this.task.endDate.toLocaleDateString();
