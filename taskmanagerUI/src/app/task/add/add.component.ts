@@ -3,6 +3,7 @@ import { Task } from '../model/task';
 import { TaskmanagerService } from '../taskmanager.service';
 import { Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
+import { APIResponse } from '../model/APIResponse';
  
 
 @Component({
@@ -14,7 +15,7 @@ export class AddComponent implements OnInit {
 
   task: Task;
   value=15;
-  //date = new FormControl(new Date());
+  apiresponse : APIResponse;
   constructor(private taskManagerService : TaskmanagerService, private router: Router) { }
 
   ngOnInit() {
@@ -30,7 +31,7 @@ export class AddComponent implements OnInit {
     this.task.startDate = startDate;
     this.task.endDate = endDate;
     this.taskManagerService.addTask(this.task).subscribe(data => {
-      this.taskManagerService = data;
+      this.apiresponse = data;
     });
     this.router.navigate(['/view']);
   }

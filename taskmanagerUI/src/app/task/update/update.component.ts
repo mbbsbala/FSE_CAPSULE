@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { filter } from 'minimatch';
 import { Data } from 'src/app/Data';
 import { TaskmanagerService } from '../taskmanager.service';
+import { APIResponse } from '../model/APIResponse';
 
 @Component({
   selector: 'app-update',
@@ -15,6 +16,7 @@ export class UpdateComponent implements OnInit {
 
   task: Task;
   value: number;
+  apiresponse:APIResponse;
   constructor(private taskManagerService : TaskmanagerService, private data: Data, private router: Router) { 
     this.task = this.data.storage;
     this.value = this.task.priority;
@@ -35,7 +37,7 @@ export class UpdateComponent implements OnInit {
     this.task.startDate = startDate;
     this.task.endDate = endDate;
     this.taskManagerService.updateTask(this.task).subscribe(data => {
-      this.taskManagerService = data;
+      this.apiresponse = data;
     });
     this.router.navigate(['/view']);
   }

@@ -10,10 +10,13 @@ docker build -t taskmanager-backend .
 
 docker run -t --link taskmanager-db:mysql -p 8080:8080 --name=taskmanager-backend taskmanager-backend
 
+-- Run docker container for frontend service
+
+docker run  --link taskmanager-backend -d -p 80:80 taskmanager-ui
+
 
 --stop container ,remove container, remove images
- 
+
 docker stop taskmanager-backend taskmanager-db
 docker rm taskmanager-backend taskmanager-db
 docker rmi taskmanager-backend taskmanager-db
-
