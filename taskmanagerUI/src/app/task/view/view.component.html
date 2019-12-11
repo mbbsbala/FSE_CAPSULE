@@ -19,11 +19,11 @@
                 <div class="input-group-prepend">
                 <span class="input-group-text">Task:</span>
                 </div>
-                <input type="text" class="form-control" aria-describedby="basic-addon3">
+                <input type="text" [(ngModel)]="searchTask" class="form-control" aria-describedby="basic-addon3">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Parent Task:</span>
                 </div>
-                <input type="text" class="form-control" aria-describedby="basic-addon3">
+                <input type="text" [(ngModel)]="searchParent" class="form-control" aria-describedby="basic-addon3">
             </div>
                 
         </div>
@@ -33,35 +33,27 @@
             <div class="input-group-prepend">
                 <span class="input-group-text">Priority From:</span>
             </div>
-            <input type="text" class="form-control">
+            <input type="text" [(ngModel)]="priorityFrom" class="form-control">
             
             <div class="input-group-prepend">
                 <span class="input-group-text">Priority To:</span>
             </div>
-            <input type="text" class="form-control">
+            <input type="text" [(ngModel)]="priorityTo" class="form-control">
             <div class="input-group-prepend">
                 <span class="input-group-text">Start Date:</span>
             </div>
-            <mat-form-field>
-                <input matInput [matDatepicker]="startDate" name="startDate" disabled>
-                <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
-                <mat-datepicker #startDate disabled="false"> </mat-datepicker>
-            </mat-form-field>
+            <input type="date" [(ngModel)]="startDate" class="form-control">
             <div class="input-group-prepend">
                 <span class="input-group-text">End Date:</span>
             </div>
-            <mat-form-field>
-                <input matInput [matDatepicker]="endDate" name="endDate" disabled>
-                <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
-                <mat-datepicker #endDate disabled="false"></mat-datepicker>
-            </mat-form-field>
+            <input type="date" [(ngModel)]="endDate" class="form-control">
         </div>
         </div>
     </div>
     <hr>
     <div *ngIf ="taskResponse">
         <div *ngIf= "taskResponse.result.status == 'SUCCESS' && taskResponse.taskList">
-            <div *ngFor="let task of taskResponse.taskList" style="padding-bottom: 10px">
+            <div *ngFor="let task of taskResponse.taskList | filter : searchTask: searchParent: priorityFrom: priorityTo: startDate: endDate" style="padding-bottom: 10px">
                 <div class="row">
                     <div class="col-md-2">
                             <span class="badge badge-secondary"><h6 style="margin-bottom: .1rem">Task</h6></span> <br>

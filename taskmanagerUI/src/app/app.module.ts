@@ -13,13 +13,15 @@ import { Data } from './Data';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {AngularMaterialModule} from './angular-material.module'
+import { FilterPipe } from './task/filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     ViewComponent,
     AddComponent,
-    UpdateComponent
+    UpdateComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
