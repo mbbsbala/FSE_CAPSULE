@@ -23,9 +23,6 @@ export class AddComponent implements OnInit {
   }
 
   addTask() {
-    console.log("add task " , this.task);
-    console.log(this.value);
-
     const startDate = this.task.startDate.toLocaleDateString();
     const endDate = this.task.endDate.toLocaleDateString();
 

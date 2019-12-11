@@ -37,10 +37,7 @@ export class FilterPipe implements PipeTransform {
     }
 
     if(startDate) {
-      console.log(items);
       items = items.filter( it => {
-          console.log(startDate);
-          console.log(it.startDate);
           let convertedPickerDate: Date = this.parsePickerDate(startDate);
           let convertedStartDate: Date = this.parseStrToDate(it.startDate);
           return convertedStartDate >= convertedPickerDate;
@@ -49,8 +46,6 @@ export class FilterPipe implements PipeTransform {
 
     if(endDate) {
       items = items.filter( it => {
-          console.log(endDate);
-          console.log(it.endDate);
           let convertedPickerDate: Date = this.parsePickerDate(endDate);
           let convertedEndDate: Date = this.parseStrToDate(it.endDate);
           return convertedEndDate <= convertedPickerDate;
