@@ -75,6 +75,7 @@ public class TaskService {
 			ParentTaskEntity parentEntity = enrichParentTaskEntiry(task);
 			entity.setParentTask(parentTaskRepo.save(parentEntity));
 			log.info("parent task saved successfully");
+			
 		}
 		try {
 			taskRepo.save(entity);
